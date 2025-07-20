@@ -60,10 +60,12 @@ Make sure to format the response as a JSON object following this structure and f
     }
 };
 
+
 const findDietPlan = async (req, res, next) => {
+    console.log(req.body)
 
     try {
-        const userId = req.body.userId; // Extract userId from request params
+        const userId = req.body.user.userId; // Extract userId from request params
 
         // Find diet plan by userId
         const dietPlan = await DietPlan.findOne({ userId });
@@ -82,7 +84,6 @@ const findDietPlan = async (req, res, next) => {
 
 
 }
-
 
 const getAll = async (req, res, next) => {
 
